@@ -1,4 +1,4 @@
-```markdown
+
 # Base App
 
 Welcome to my Base App! This project is built using Expo, a framework for building React Native applications.
