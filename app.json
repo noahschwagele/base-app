@@ -3,7 +3,7 @@
     "name": "mjov2",
     "slug": "mjov2",
     "version": "1.0.0",
-    "orientation": "landscape",
+    "orientation": "both",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
