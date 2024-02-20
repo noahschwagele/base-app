@@ -1,21 +1,14 @@
 import * as React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Button, IconButton, useTheme, Text } from 'react-native-paper';
+import { Button, useTheme } from 'react-native-paper';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { View } from 'react-native';
+import { ToastAndroid } from 'react-native';
 
 //import the Screens
 import SplashScreen from '../screens/SplashScreen';
 import BottomTabs from './BottomTabs';
 import LoginScreen from '../screens/LoginScreen';
-
-
-import EnrouteScreen from '../screens/EnrouteScreen';
-import DriverWeighScreen from '../screens/DriverWeighScreen';
-import ValidateScreen from '../screens/ValidateScreen';
-import ExcuvatorTaskScreen from '../screens/ExcuvatorTaskScreen';
-import ExcuvatorWeighScreen from '../screens/ExcuvatorWeighScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -34,6 +27,7 @@ const App = () => {
     await AsyncStorage.removeItem('userRole');
     setUserRole(null)
     setUserToken(null)
+    ToastAndroid.show('You Have Succesfully Logged Out!', ToastAndroid.SHORT);
   };
 
   const getUserToken = async () => {
@@ -90,85 +84,15 @@ const App = () => {
           component={BottomTabs}
           options={{
             headerShown: false,
-            headerRight: () => (
-              <Button onPress={() => navigation.goBack()} title="Info">
-                Back
-              </Button>
-            ),
+            // headerRight: () => (
+            //   <Button onPress={() => navigation.goBack()} title="Info">
+            //     Back
+            //   </Button>
+            // ),
           }}
           initialParams={{ userToken, userDetails, userRole, setUserToken, logout }}
         />
         )}
-
-        <Stack.Screen
-          name="EnrouteScreen"
-          component={EnrouteScreen}
-          options={{
-            headerShown: true,
-            title: '',
-            headerLeft: () => (
-              <Text></Text>
-            ),
-            headerRight: () => (
-              <Text variant='labelLarge'>1/10</Text>
-            ),
-          }}
-        />
-        <Stack.Screen
-          name="ExcuvatorTaskScreen"
-          component={ExcuvatorTaskScreen}
-          options={{
-            headerShown: true,
-            title: '',
-            headerLeft: () => (
-              <Text></Text>
-            ),
-            headerRight: () => (
-              <Text variant='labelLarge'>1/10</Text>
-            ),
-          }}
-        />
-
-      <Stack.Screen
-          name="DriverWeighScreen"
-          component={DriverWeighScreen}
-          options={{
-            headerShown: true,
-            title: '',
-            headerLeft: () => (
-              <Text></Text>
-            ),
-            headerRight: () => (
-              <View style={{backgroundColor: 'lime', padding:5, borderRadius: 20}}>
-                {/* <Text>Connected/Offline</Text> */}
-              </View>
-            )
-          }}
-        />
-        <Stack.Screen
-          name="ExcuvatorWeighScreen"
-          component={ExcuvatorWeighScreen}
-          options={{
-            headerShown: true,
-            title: '',
-            headerLeft: () => (
-              <Text></Text>
-            ),
-            headerRight: () => (
-              <View style={{backgroundColor: 'lime', padding:5, borderRadius: 20}}>
-                {/* <Text>Connected/Offline</Text> */}
-              </View>
-            )
-          }}
-        />
-        <Stack.Screen
-          name="ValidateScreen"
-          component={ValidateScreen}
-          options={{
-            headerShown: false,
-          }}
-          initialParams={{  userRole }}
-        />
       
     </Stack.Navigator>
   );

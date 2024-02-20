@@ -4,17 +4,19 @@ import { useTheme } from 'react-native-paper';
 import { Image } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-// Import Driver Screens
-import ProfileScreen from '../screens/ProfileScreen'
+import HomeScreen from '../screens/HomeStack/HomeScreen';
+
+
+
 
 const Stack = createNativeStackNavigator();
 
-const ProfileStack = ({ navigation, route }) => {
+const HomeStack = ({ navigation, route }) => {
   const { userToken, userDetails, userRole, logout } = route.params;
   const theme = useTheme();
   return (
     <Stack.Navigator
-      initialRouteName='ProfileScreen'
+      initialRouteName='HomeScreen'
       screenOptions={{
         headerTitleStyle: {
           fontWeight: 'bold',
@@ -23,13 +25,13 @@ const ProfileStack = ({ navigation, route }) => {
       }}
     >
       <Stack.Screen 
-        name="ProfileScreen" 
-        component={ProfileScreen} 
-        options={{ headerShown: true, title: 'Profile' }} 
+        name="HomeScreen" 
+        component={HomeScreen} 
+        options={{ headerShown: true, title: 'Home' }} 
         initialParams={{ userToken, userDetails, logout }}
         />
     </Stack.Navigator>
   );
 }
 
-export default ProfileStack;
+export default HomeStack;

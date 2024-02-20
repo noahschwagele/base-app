@@ -1,31 +1,38 @@
+import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import { MD3LightTheme as DefaultTheme, Provider as PaperProvider, Button } from 'react-native-paper';
+import { Provider as PaperProvider } from 'react-native-paper';
 import { NavigationContainer } from '@react-navigation/native';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
-import {theme}  from './theme';
+import { Darktheme, Lighttheme, NavThemeDark, NavThemeLight} from './theme';
 import MainNav from './src/navigation/Main';
+import { useColorScheme } from 'react-native';
 
-
-
-//Main Data
-function App(){
-    return(
-      <NavigationContainer >
-          <MainNav/>
-      </NavigationContainer>
-    )
+function themeSelector() {
+  const colorScheme = useColorScheme();
+  console.log(colorScheme);
+  return colorScheme !== 'dark' ? Darktheme : Lighttheme;
+}
+function NavThemeSelector() {
+  const colorScheme = useColorScheme();
+  console.log(colorScheme);
+  return colorScheme !== 'dark' ? NavThemeDark : NavThemeLight;
 }
 
-
-//Main Export
-export default function Main() {
-
+// Main Data
+function App() {
   return (
-    <PaperProvider theme={theme}>
-      <StatusBar/>
-      <App/>
-    </PaperProvider>
+    <NavigationContainer theme={NavThemeLight}>
+      <StatusBar />
+      <MainNav />
+    </NavigationContainer>
   );
 }
 
+// Main Export
+export default function Main() {
+  
+  return (
+    <PaperProvider theme={Lighttheme}>
+      <App />
+    </PaperProvider>
+  );
+}
