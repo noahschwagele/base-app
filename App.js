@@ -20,7 +20,7 @@ function NavThemeSelector() {
 // Main Data
 function App() {
   return (
-    <NavigationContainer theme={NavThemeLight}>
+    <NavigationContainer theme={NavThemeDark}>
       <StatusBar />
       <MainNav />
     </NavigationContainer>
@@ -31,7 +31,7 @@ function App() {
 export default function Main() {
   
   return (
-    <PaperProvider theme={Lighttheme}>
+    <PaperProvider theme={Darktheme}>
       <App />
     </PaperProvider>
   );

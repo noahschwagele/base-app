@@ -105,14 +105,16 @@ export const Darktheme = {
     }.colors
   };
 
+
+  //Dont touch this controlls the theme based on your Light and Dark theme props to match the feel of you application
   export const NavThemeLight = {
     
     dark: false,
     colors: {
-    primary: 'rgb(140, 51, 179)',
-    background: 'rgb(232, 224, 229)',
-    card: 'rgb(255,255,255)',
-    text: 'rgb(0,0,0)',
+        primary: Lighttheme.colors.primary,
+        background: Lighttheme.colors.background,
+        card: Lighttheme.colors.surface,
+        text: Lighttheme.colors.text,
 
     }
   };
@@ -120,9 +122,9 @@ export const Darktheme = {
   export const NavThemeDark = {
     dark: true,
     colors: {
-    primary: 'rgb(235, 178, 255)',
-    background: 'rgb(30, 27, 30)',
-    card: 'rgb(57, 44, 61)',
-    text: 'rgb(255,255,255)',
+    primary: Darktheme.colors.primary,
+    background: Darktheme.colors.background,
+    card: Darktheme.colors.surface,
+    text: Darktheme.colors.text,
     }
   };
