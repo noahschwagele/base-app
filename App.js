@@ -9,18 +9,18 @@ import { useColorScheme } from 'react-native';
 function themeSelector() {
   const colorScheme = useColorScheme();
   console.log(colorScheme);
-  return colorScheme !== 'dark' ? Darktheme : Lighttheme;
+  return colorScheme == 'dark' ? Darktheme : Lighttheme;
 }
 function NavThemeSelector() {
   const colorScheme = useColorScheme();
   console.log(colorScheme);
-  return colorScheme !== 'dark' ? NavThemeDark : NavThemeLight;
+  return colorScheme == 'dark' ? NavThemeDark : NavThemeLight;
 }
 
 // Main Data
 function App() {
   return (
-    <NavigationContainer theme={NavThemeDark}>
+    <NavigationContainer theme={NavThemeSelector()}>
       <StatusBar />
       <MainNav />
     </NavigationContainer>
@@ -31,7 +31,7 @@ function App() {
 export default function Main() {
   
   return (
-    <PaperProvider theme={Darktheme}>
+    <PaperProvider theme={themeSelector()}>
       <App />
     </PaperProvider>
   );
