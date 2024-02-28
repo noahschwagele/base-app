@@ -1,6 +1,6 @@
 // LoginScreen.js
 import React, { useState } from 'react';
-import { View, StyleSheet, Image } from 'react-native';
+import { View, StyleSheet, Image  } from 'react-native';
 import { TextInput, Button, Text, useTheme } from 'react-native-paper';
 
 const LoginScreen = ({ navigation, route }) => {
@@ -18,10 +18,17 @@ const LoginScreen = ({ navigation, route }) => {
   };
 
   return (
-    <View style={[styles.container, {backgroundColor: theme.colors.background}]}>
-      <Image source={require('../../assets/icon.png')} style={styles.logo} />
-
-      <View style={styles.form}>
+    <>
+    <View style={[{flex:1, backgroundColor: theme.colors.background}]}>
+      
+      <View style={[styles.background, {backgroundColor: theme.colors.primary}]} >
+      {/* <Image source={require('../../assets/icon.png')} style={styles.logo} /> */}
+        <View style={[styles.logoBorder, {borderColor: theme.colors.surface}]}>
+          <Text style={[styles.logotext, {color: theme.colors.surface}]}>BASE APP</Text>
+        </View>
+        
+      </View>
+      <View style={[styles.form, styles.container]}>
         <TextInput
           label="Email"
           mode="outlined"
@@ -44,7 +51,7 @@ const LoginScreen = ({ navigation, route }) => {
           style={styles.loginButton}
           labelStyle={styles.buttonText}
         >
-          Login
+          LOGIN
         </Button>
 
         <Text style={styles.signupText}>
@@ -57,7 +64,9 @@ const LoginScreen = ({ navigation, route }) => {
           </Text>
         </Text>
       </View>
+      
     </View>
+    </>
   );
 };
 
@@ -67,12 +76,41 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: 20,
   },
+  background:{
+    flex:1,
+    paddingHorizontal: 0,
+    borderBottomEndRadius: -100,
+    borderBottomStartRadius: 200,
+    // borderTopLeftRadius: -10000,
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
   logo: {
     width: 150,
     height: 150,
     alignSelf: 'center',
     marginBottom: 20,
     marginTop: 50
+  },
+  logoBorder: {
+    position: 'absolute',
+    fontWeight: 700,
+    fontSize: 30,
+    borderRadius: 1000,
+    // borderColor: 'white',
+    borderWidth: 10,
+    // padding: 20,
+    width: '50%',
+    height: '60%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 5
+  },
+  logotext: {
+    // color: 'white',
+    fontWeight: 700,
+    fontSize: 30,
   },
   form: {
     flex: 1,
@@ -82,11 +120,16 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   loginButton: {
-    marginTop: 20,
-    paddingVertical: 12,
+    flexGrow: 0.1,
+    justifyContent: 'center',
+    borderRadius: 15,
+    // paddingVertical: 12,
     // backgroundColor: '#4CAF50', // Customize button color
   },
   buttonText: {
+    
+    // alignContent: 'center',
+    width: '100%',
     fontSize: 16,
   },
   signupText: {
