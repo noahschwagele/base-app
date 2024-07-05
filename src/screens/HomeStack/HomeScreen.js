@@ -12,14 +12,6 @@ const HomeScreen = ({ navigation, route }) => {
             <Text variant='headlineMedium'>Welcome to</Text>
             <Text variant='headlineMedium'>Base-app</Text>
         </View>
-
-      <Button
-        mode="contained"
-        onPress={logout} // Navigate to the Login screen
-        style={styles.button}
-      >
-        Navigate to Stack
-      </Button>
     </View>
   );
 };

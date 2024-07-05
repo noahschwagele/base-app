@@ -120,15 +120,19 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   loginButton: {
-    flexGrow: 0.1,
+    // flexGrow: 0.1,
+    // alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 15,
     // paddingVertical: 12,
     // backgroundColor: '#4CAF50', // Customize button color
   },
   buttonText: {
-    
+    // flex: 1,
     // alignContent: 'center',
+    // height: 50,
+    color: 'white',
+    paddingVertical: 5,
     width: '100%',
     fontSize: 16,
   },
