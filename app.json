@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "base-app",
-    "slug": "base-app",
+    "name": "XtremeOctane",
+    "slug": "xo-app",
     "version": "1.0.0",
     "orientation": "both",
     "icon": "./assets/icon.png",
