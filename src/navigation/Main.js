@@ -15,7 +15,7 @@ const Stack = createNativeStackNavigator();
 const App = () => {
   const theme = useTheme();
   const [isLoading, setIsLoading] = React.useState(true);
-  const [userToken, setUserToken] = React.useState(null);
+  const [userToken, setUserToken] = React.useState(123);
   const [userDetails, setUserDetails] = React.useState(null);
   const [userRole, setUserRole] = React.useState('Driver');
   const navigation = useNavigation();
