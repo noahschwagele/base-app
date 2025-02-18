@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "externalCamera",
-    "slug": "externalCamera",
+    "name": "base-app",
+    "slug": "base-app",
     "version": "1.0.0",
     "orientation": "both",
     "icon": "./assets/icon.png",
@@ -29,20 +29,10 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      },
-      "permissions": [
-        "android.permission.CAMERA",
-        "android.permission.RECORD_AUDIO"
-      ],
-      "package": "com.bisnetis.externalCamera"
+      }
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    },
-    "extra": {
-      "eas": {
-        "projectId": "8cb0917a-9610-47a5-9751-dd51a3e093de"
-      }
     }
   }
 }

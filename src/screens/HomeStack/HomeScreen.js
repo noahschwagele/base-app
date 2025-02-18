@@ -1,24 +1,16 @@
 // ProfileScreen.js
 import React from 'react';
-import { View, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { Text, Card , Button} from 'react-native-paper';
-import GJ from 'react-native-camera2-gjcamera'
 
 const HomeScreen = ({ navigation, route }) => {
   const {logout} = route.params;
-
-  OpenMyCamer = async () => {
-    const result = await GJ.OpenMyCamera();
-    console.log({ imgPATH: result.imgPath });
-    }
-
   return (
     <View style={styles.container}>
       {/* <Avatar.Image size={100} source={require('./assets/profile.jpg')} /> */}
         <View style={styles.container}>
-        <TouchableOpacity onPress={() => this.OpenMyCamer()}>
-           <Text>Open Camera</Text>
-        </TouchableOpacity>
+            <Text variant='headlineMedium'>Welcome to</Text>
+            <Text variant='headlineMedium'>Base-app</Text>
         </View>
     </View>
   );

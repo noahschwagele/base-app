@@ -17,13 +17,13 @@ Before you begin, make sure you have the following installed on your machine:
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/noahschwagele/externalCamera.git
+git clone https://github.com/noahschwagele/base-app.git
 ```
 
 ### Navigate to the Project Directory
 
 ```bash
-cd externalCamera
+cd base-app
 ```
 
 ### Install Dependencies
