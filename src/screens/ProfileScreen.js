@@ -11,14 +11,6 @@ const ProfileScreen = ({ navigation, route }) => {
         <View style={styles.container}>
 
         </View>
-
-      <Button
-        mode="contained"
-        onPress={logout} // Navigate to the Login screen
-        style={styles.button}
-      >
-        Logout
-      </Button>
     </View>
   );
 };

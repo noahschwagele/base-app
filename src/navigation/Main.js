@@ -27,7 +27,6 @@ const App = () => {
     await AsyncStorage.removeItem('userRole');
     setUserRole(null)
     setUserToken(null)
-    ToastAndroid.show('You Have Succesfully Logged Out!', ToastAndroid.SHORT);
   };
 
   const getUserToken = async () => {

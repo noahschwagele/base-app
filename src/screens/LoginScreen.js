@@ -58,7 +58,7 @@ const LoginScreen = ({ navigation, route }) => {
           Don't have an account?{' '}
           <Text
             style={styles.signupLink}
-            onPress={() => navigation.navigate('Signup')}
+            onPress={() => console.log('navigate to signup')}
           >
             Sign up
           </Text>

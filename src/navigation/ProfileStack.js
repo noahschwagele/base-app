@@ -1,6 +1,6 @@
 // DriverStack.js
 import * as React from 'react';
-import { useTheme } from 'react-native-paper';
+import { Button, useTheme } from 'react-native-paper';
 import { Image } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
@@ -25,7 +25,11 @@ const ProfileStack = ({ navigation, route }) => {
       <Stack.Screen 
         name="ProfileScreen" 
         component={ProfileScreen} 
-        options={{ headerShown: true, title: 'Profile' }} 
+        options={{ 
+          headerShown: true, 
+          title: 'Profile',
+          headerRight: () => <Button onPress={logout}>Logout</Button>
+        }} 
         initialParams={{ userToken, userDetails, logout }}
         />
     </Stack.Navigator>
