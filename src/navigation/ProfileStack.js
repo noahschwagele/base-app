@@ -1,7 +1,6 @@
 // DriverStack.js
 import * as React from 'react';
 import { Button, useTheme } from 'react-native-paper';
-import { Image } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 // Import Driver Screens
@@ -28,7 +27,7 @@ const ProfileStack = ({ navigation, route }) => {
         options={{ 
           headerShown: true, 
           title: 'Profile',
-          headerRight: () => <Button onPress={logout}>Logout</Button>
+          headerRight: () => (<Button onPress={logout}>Logout</Button>)
         }} 
         initialParams={{ userToken, userDetails, logout }}
         />

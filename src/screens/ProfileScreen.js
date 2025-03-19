@@ -2,6 +2,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Avatar, Card , Button} from 'react-native-paper';
+import ThemeSelector from '../components/ThemeSelector';
 
 const ProfileScreen = ({ navigation, route }) => {
   const {logout} = route.params;
@@ -9,7 +10,7 @@ const ProfileScreen = ({ navigation, route }) => {
     <View style={styles.container}>
       {/* <Avatar.Image size={100} source={require('./assets/profile.jpg')} /> */}
         <View style={styles.container}>
-
+          <ThemeSelector/>
         </View>
     </View>
   );
@@ -18,8 +19,8 @@ const ProfileScreen = ({ navigation, route }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    // justifyContent: 'center',
+    // alignItems: 'center',
     // paddingHorizontal: 20,
     margin: 15
   },

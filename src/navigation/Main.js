@@ -89,7 +89,7 @@ const App = () => {
             //   </Button>
             // ),
           }}
-          initialParams={{ userToken, userDetails, userRole, setUserToken, logout }}
+          initialParams={{ userToken, userDetails, userRole, logout }}
         />
         )}
       

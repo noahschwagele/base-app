@@ -3,102 +3,106 @@ import {
   DefaultTheme
 } from '@react-navigation/native';
   
+//create themes here
+//https://callstack.github.io/react-native-paper/docs/guides/theming#creating-dynamic-theme-colors
 
 export const Darktheme = {
     dark: true,
     colors: {
       "colors": {
-        "primary": "rgb(0, 87, 206)",
-        "onPrimary": "rgb(255, 255, 255)",
-        "primaryContainer": "rgb(218, 226, 255)",
-        "onPrimaryContainer": "rgb(0, 25, 70)",
-        "secondary": "rgb(192, 198, 220)",
-        "onSecondary": "rgb(42, 48, 66)",
-        "secondaryContainer": "rgb(64, 70, 89)",
-        "onSecondaryContainer": "rgb(220, 226, 249)",
-        "tertiary": "rgb(224, 187, 221)",
-        "onTertiary": "rgb(65, 39, 66)",
-        "tertiaryContainer": "rgb(89, 61, 89)",
-        "onTertiaryContainer": "rgb(254, 215, 250)",
+        "primary": "rgb(187, 195, 255)",
+        "onPrimary": "rgb(17, 34, 134)",
+        "primaryContainer": "rgb(45, 60, 156)",
+        "onPrimaryContainer": "rgb(223, 224, 255)",
+        "secondary": "rgb(196, 197, 221)",
+        "onSecondary": "rgb(45, 47, 66)",
+        "secondaryContainer": "rgb(67, 69, 89)",
+        "onSecondaryContainer": "rgb(224, 225, 249)",
+        "tertiary": "rgb(230, 186, 215)",
+        "onTertiary": "rgb(69, 38, 61)",
+        "tertiaryContainer": "rgb(93, 60, 84)",
+        "onTertiaryContainer": "rgb(255, 215, 240)",
         "error": "rgb(255, 180, 171)",
         "onError": "rgb(105, 0, 5)",
         "errorContainer": "rgb(147, 0, 10)",
         "onErrorContainer": "rgb(255, 180, 171)",
         "background": "rgb(27, 27, 31)",
-        "onBackground": "rgb(228, 226, 230)",
+        "onBackground": "rgb(228, 225, 230)",
         "surface": "rgb(27, 27, 31)",
-        "onSurface": "rgb(228, 226, 230)",
-        "surfaceVariant": "rgb(68, 70, 79)",
-        "onSurfaceVariant": "rgb(197, 198, 208)",
-        "outline": "rgb(143, 144, 153)",
-        "outlineVariant": "rgb(68, 70, 79)",
+        "onSurface": "rgb(228, 225, 230)",
+        "surfaceVariant": "rgb(70, 70, 79)",
+        "onSurfaceVariant": "rgb(199, 197, 208)",
+        "outline": "rgb(144, 144, 154)",
+        "outlineVariant": "rgb(70, 70, 79)",
         "shadow": "rgb(0, 0, 0)",
         "scrim": "rgb(0, 0, 0)",
-        "inverseSurface": "rgb(228, 226, 230)",
+        "inverseSurface": "rgb(228, 225, 230)",
         "inverseOnSurface": "rgb(48, 48, 52)",
-        "inversePrimary": "rgb(0, 87, 206)",
+        "inversePrimary": "rgb(71, 85, 182)",
         "elevation": {
           "level0": "transparent",
-          "level1": "rgb(35, 36, 42)",
-          "level2": "rgb(39, 41, 49)",
-          "level3": "rgb(44, 46, 56)",
-          "level4": "rgb(45, 47, 58)",
-          "level5": "rgb(48, 51, 62)"
+          "level1": "rgb(35, 35, 42)",
+          "level2": "rgb(40, 40, 49)",
+          "level3": "rgb(45, 46, 56)",
+          "level4": "rgb(46, 47, 58)",
+          "level5": "rgb(49, 51, 62)"
         },
-        "surfaceDisabled": "rgba(228, 226, 230, 0.12)",
-        "onSurfaceDisabled": "rgba(228, 226, 230, 0.38)",
-        "backdrop": "rgba(46, 48, 56, 0.4)",
+        "surfaceDisabled": "rgba(228, 225, 230, 0.12)",
+        "onSurfaceDisabled": "rgba(228, 225, 230, 0.38)",
+        "backdrop": "rgba(47, 48, 56, 0.4)",
         "text": 'rgb(255,255,255)'
       }
     }.colors
   };
 
   export const Lighttheme = {
-    
+
     colors: {
       "colors": {
-        "primary": "rgb(0, 87, 206)",
+        "primary": "rgb(71, 85, 182)",
         "onPrimary": "rgb(255, 255, 255)",
-        "primaryContainer": "rgb(218, 226, 255)",
-        "onPrimaryContainer": "rgb(0, 25, 70)",
-        "secondary": "rgb(88, 94, 113)",
+        "primaryContainer": "rgb(223, 224, 255)",
+        "onPrimaryContainer": "rgb(0, 13, 95)",
+        "secondary": "rgb(91, 93, 114)",
         "onSecondary": "rgb(255, 255, 255)",
-        "secondaryContainer": "rgb(220, 226, 249)",
-        "onSecondaryContainer": "rgb(21, 27, 44)",
-        "tertiary": "rgb(115, 85, 114)",
+        "secondaryContainer": "rgb(224, 225, 249)",
+        "onSecondaryContainer": "rgb(24, 26, 44)",
+        "tertiary": "rgb(119, 83, 108)",
         "onTertiary": "rgb(255, 255, 255)",
-        "tertiaryContainer": "rgb(254, 215, 250)",
-        "onTertiaryContainer": "rgb(42, 18, 44)",
+        "tertiaryContainer": "rgb(255, 215, 240)",
+        "onTertiaryContainer": "rgb(45, 18, 39)",
         "error": "rgb(186, 26, 26)",
         "onError": "rgb(255, 255, 255)",
         "errorContainer": "rgb(255, 218, 214)",
         "onErrorContainer": "rgb(65, 0, 2)",
-        "background": "rgb(254, 251, 255)",
+        "background": "rgb(255, 251, 255)",
         "onBackground": "rgb(27, 27, 31)",
-        "surface": "rgb(254, 251, 255)",
+        "surface": "rgb(255, 251, 255)",
         "onSurface": "rgb(27, 27, 31)",
-        "surfaceVariant": "rgb(225, 226, 236)",
-        "onSurfaceVariant": "rgb(68, 70, 79)",
-        "outline": "rgb(117, 119, 128)",
-        "outlineVariant": "rgb(197, 198, 208)",
+        "surfaceVariant": "rgb(227, 225, 236)",
+        "onSurfaceVariant": "rgb(70, 70, 79)",
+        "outline": "rgb(118, 118, 128)",
+        "outlineVariant": "rgb(199, 197, 208)",
         "shadow": "rgb(0, 0, 0)",
         "scrim": "rgb(0, 0, 0)",
         "inverseSurface": "rgb(48, 48, 52)",
-        "inverseOnSurface": "rgb(242, 240, 244)",
-        "inversePrimary": "rgb(177, 197, 255)",
+        "inverseOnSurface": "rgb(243, 240, 244)",
+        "inversePrimary": "rgb(187, 195, 255)",
         "elevation": {
           "level0": "transparent",
-          "level1": "rgb(241, 243, 253)",
-          "level2": "rgb(234, 238, 251)",
-          "level3": "rgb(226, 233, 250)",
-          "level4": "rgb(224, 231, 249)",
-          "level5": "rgb(218, 228, 248)"
+          "level1": "rgb(246, 243, 251)",
+          "level2": "rgb(240, 238, 249)",
+          "level3": "rgb(235, 233, 247)",
+          "level4": "rgb(233, 231, 246)",
+          "level5": "rgb(229, 228, 245)"
         },
         "surfaceDisabled": "rgba(27, 27, 31, 0.12)",
         "onSurfaceDisabled": "rgba(27, 27, 31, 0.38)",
-        "backdrop": "rgba(46, 48, 56, 0.4)",
-        "text": 'rgb(0,0,0)'
-      }}.colors
+        "backdrop": "rgba(47, 48, 56, 0.4)",
+        //custom colors
+        "text": 'rgb(0, 0, 0)',
+      }
+    }.colors
   };
 
 
