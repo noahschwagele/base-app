@@ -58,6 +58,9 @@ For more details on running Expo projects, refer to the [Expo documentation](htt
 
 Feel free to customize the app according to your needs. You can edit the source files in the `src` directory and make any necessary changes.
 
+##CLI Issues
+Read the expo eas cli documentation here: [Expo EAS CLI](https://github.com/expo/eas-cli)
+
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
