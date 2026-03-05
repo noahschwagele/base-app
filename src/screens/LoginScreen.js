@@ -1,13 +1,11 @@
 // LoginScreen.js
 import React, { useState } from 'react';
-import { View, StyleSheet, Image  } from 'react-native';
-import { TextInput, Button, Text, useTheme } from 'react-native-paper';
+import { View, StyleSheet, Image, Button, Text, TextInput } from 'react-native';
 
 const LoginScreen = ({ navigation, route }) => {
   const {setUserToken} = route.params;
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const theme = useTheme();
 
   const handleLogin = () => {
     // Implement your login logic here
@@ -19,12 +17,12 @@ const LoginScreen = ({ navigation, route }) => {
 
   return (
     <>
-    <View style={[{flex:1, backgroundColor: theme.colors.background}]}>
+    <View style={[{flex:1}]}>
       
-      <View style={[styles.background, {backgroundColor: theme.colors.primary}]} >
+      <View style={[styles.background]} >
       {/* <Image source={require('../../assets/icon.png')} style={styles.logo} /> */}
-        {/* <View style={[styles.logoBorder, {borderColor: theme.colors.surface}]}> */}
-          <Text style={[styles.logotext, {color: theme.colors.surface}]}>BASE APP</Text>
+        {/* <View style={[styles.logoBorder]}> */}
+          <Text style={[styles.logotext]}>BASE APP</Text>
         {/* </View> */}
         
       </View>

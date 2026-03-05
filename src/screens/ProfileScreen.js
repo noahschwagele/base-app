@@ -1,14 +1,12 @@
 // ProfileScreen.js
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { Avatar, Card , Button} from 'react-native-paper';
 import ThemeSelector from '../components/ThemeSelector';
 
 const ProfileScreen = ({ navigation, route }) => {
   const {logout} = route.params;
   return (
     <View style={styles.container}>
-      {/* <Avatar.Image size={100} source={require('./assets/profile.jpg')} /> */}
         <View style={styles.container}>
           <ThemeSelector/>
         </View>

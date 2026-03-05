@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
-import { View } from "react-native";
-import { Button, Switch, Text } from "react-native-paper";
-import { ThemeContext } from "../modules/ThemeContext";
+import { View, Switch, Text } from "react-native";
+import { ThemeContext } from "../contexts/ThemeContext";
 
 const ThemeSelector = () => {
     const { theme, toggleTheme } = useContext(ThemeContext);
