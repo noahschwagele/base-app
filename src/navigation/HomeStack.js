@@ -1,6 +1,5 @@
 // DriverStack.js
 import * as React from 'react';
-import { useTheme } from 'react-native-paper';
 import { Image } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
@@ -13,7 +12,6 @@ const Stack = createNativeStackNavigator();
 
 const HomeStack = ({ navigation, route }) => {
   const { userToken, userDetails, userRole, logout } = route.params;
-  const theme = useTheme();
   return (
     <Stack.Navigator
       initialRouteName='HomeScreen'
@@ -21,7 +19,6 @@ const HomeStack = ({ navigation, route }) => {
         headerTitleStyle: {
           fontWeight: 'bold',
         },
-        headerBackTitleStyle: {backgroundColor: theme.colors.onSurface}
       }}
     >
       <Stack.Screen 

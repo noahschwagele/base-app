@@ -1,13 +1,11 @@
 // ProfileScreen.js
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
-import { Text, Card , Button} from 'react-native-paper';
+import { View, StyleSheet, Button, Text } from 'react-native';
 
 const HomeScreen = ({ navigation, route }) => {
   const {logout} = route.params;
   return (
     <View style={styles.container}>
-      {/* <Avatar.Image size={100} source={require('./assets/profile.jpg')} /> */}
         <View style={styles.container}>
             <Text variant='headlineMedium'>Welcome to</Text>
             <Text variant='headlineMedium'>Base-app</Text>

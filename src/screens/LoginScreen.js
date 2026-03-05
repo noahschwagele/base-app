@@ -48,6 +48,7 @@ const LoginScreen = ({ navigation, route }) => {
           onPress={handleLogin}
           style={styles.loginButton}
           labelStyle={styles.buttonText}
+          title="Login"
         >
           LOGIN
         </Button>

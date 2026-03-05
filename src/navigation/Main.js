@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Button, useTheme } from 'react-native-paper';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { ToastAndroid } from 'react-native';
 
@@ -13,7 +12,6 @@ import LoginScreen from '../screens/LoginScreen';
 const Stack = createNativeStackNavigator();
 
 const App = () => {
-  const theme = useTheme();
   const [isLoading, setIsLoading] = React.useState(true);
   const [userToken, setUserToken] = React.useState(null);
   const [userDetails, setUserDetails] = React.useState(null);

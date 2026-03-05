@@ -1,6 +1,5 @@
 // BottomTabs.js
 import * as React from 'react';
-import { useTheme } from 'react-native-paper';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
@@ -14,12 +13,9 @@ export default function BottomTabs({route}) {
   // get Route Params
   const {userToken, userRole, userDetails, logout} = route.params;
 
-  const theme = useTheme();
-
   return (
     <Tab.Navigator
       initialRouteName="Home"
-      barStyle={theme.colors.primary}
     >
       <Tab.Screen
         name="Home"
