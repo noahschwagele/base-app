@@ -1,7 +1,6 @@
 // BottomTabs.js
-import * as React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 // Import the Operator and Driver Stacks
 import ProfileStack from './ProfileStack';
