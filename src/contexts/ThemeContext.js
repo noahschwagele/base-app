@@ -1,6 +1,9 @@
 import React, { createContext, useState, useEffect } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { Darktheme, Lighttheme, NavThemeDark, NavThemeLight } from "../../theme"; // Your themes
+import {
+    createNavigationTheme,
+    getThemeByMode,
+} from "../../theme";
 
 export const ThemeContext = createContext();
 
@@ -23,10 +26,24 @@ export const ThemeProvider = ({ children }) => {
         await AsyncStorage.setItem("selectedTheme", newTheme);
     };
 
+    const appTheme = getThemeByMode(theme);
+    const navTheme = createNavigationTheme(appTheme);
+
     return (
-        <ThemeContext.Provider value={{ theme, toggleTheme, 
-            paperTheme: theme === "dark" ? Darktheme : Lighttheme, 
-            navTheme: theme === "dark" ? NavThemeDark : NavThemeLight }}>
+        <ThemeContext.Provider
+            value={{
+                theme,
+                isDark: appTheme.dark,
+                setTheme,
+                toggleTheme,
+                appTheme,
+                paperTheme: appTheme,
+                navTheme,
+                colors: appTheme.colors,
+                components: appTheme.components,
+                tokens: appTheme.tokens,
+            }}
+        >
             {children}
         </ThemeContext.Provider>
     );

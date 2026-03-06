@@ -1,21 +1,27 @@
 // DriverStack.js
 import * as React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { ThemeContext } from '../contexts/ThemeContext';
 
 // Import Driver Screens
 import ProfileScreen from '../screens/ProfileScreen'
-import { Button } from 'react-native';
 
 const Stack = createNativeStackNavigator();
 
 const ProfileStack = ({ navigation, route }) => {
   const { userToken, userDetails, userRole, logout } = route.params;
+  const { colors } = React.useContext(ThemeContext);
   return (
     <Stack.Navigator
       initialRouteName='ProfileScreen'
       screenOptions={{
+        headerStyle: {
+          backgroundColor: colors.surface,
+        },
+        headerTintColor: colors.text,
         headerTitleStyle: {
           fontWeight: 'bold',
+          color: colors.text,
         },
       }}
     >

@@ -1,9 +1,14 @@
 // LoginScreen.js
-import React, { useState } from 'react';
-import { View, StyleSheet, Image, Button, Text, TextInput } from 'react-native';
+import React, { useContext, useState } from 'react';
+import { View, StyleSheet } from 'react-native';
+import { ThemeContext } from '../contexts/ThemeContext';
+import AppButton from '../components/Button';
+import AppText from '../components/Text';
+import AppTextInput from '../components/TextInput';
 
 const LoginScreen = ({ navigation, route }) => {
   const {setUserToken} = route.params;
+  const { colors } = useContext(ThemeContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -17,51 +22,49 @@ const LoginScreen = ({ navigation, route }) => {
 
   return (
     <>
-    <View style={[{flex:1}]}>
+    <View style={[styles.root, { backgroundColor: colors.background }]}>
       
-      <View style={[styles.background]} >
+      <View style={[styles.background, { backgroundColor: colors.surfaceAlt }]} >
       {/* <Image source={require('../../assets/icon.png')} style={styles.logo} /> */}
         {/* <View style={[styles.logoBorder]}> */}
-          <Text style={[styles.logotext]}>BASE APP</Text>
+          <AppText variant="title" style={styles.logotext}>BASE APP</AppText>
         {/* </View> */}
         
       </View>
       <View style={[styles.form, styles.container]}>
-        <TextInput
+        <AppTextInput
           label="Email"
-          mode="outlined"
           value={email}
           onChangeText={(text) => setEmail(text)}
+          placeholder="your@email.com"
+          autoCapitalize="none"
+          keyboardType="email-address"
           style={styles.input}
         />
-        <TextInput
+        <AppTextInput
           label="Password"
-          mode="outlined"
           secureTextEntry
           value={password}
           onChangeText={(text) => setPassword(text)}
+          placeholder="Password"
           style={styles.input}
         />
 
-        <Button
-          mode="contained"
+        <AppButton
           onPress={handleLogin}
           style={styles.loginButton}
-          labelStyle={styles.buttonText}
-          title="Login"
-        >
-          LOGIN
-        </Button>
+          title="LOGIN"
+        />
 
-        <Text style={styles.signupText}>
+        <AppText style={styles.signupText}>
           Don't have an account?{' '}
-          <Text
-            style={styles.signupLink}
+          <AppText
+            style={[styles.signupLink, { color: colors.link }]}
             onPress={() => console.log('navigate to signup')}
           >
             Sign up
-          </Text>
-        </Text>
+          </AppText>
+        </AppText>
       </View>
       
     </View>
@@ -70,6 +73,9 @@ const LoginScreen = ({ navigation, route }) => {
 };
 
 const styles = StyleSheet.create({
+  root: {
+    flex: 1,
+  },
   container: {
     flex: 1,
     justifyContent: 'center',
@@ -94,8 +100,6 @@ const styles = StyleSheet.create({
   },
   logoBorder: {
     position: 'absolute',
-    fontWeight: 700,
-    fontSize: 30,
     borderRadius: 1000,
     // borderColor: 'white',
     borderWidth: 10,
@@ -107,9 +111,7 @@ const styles = StyleSheet.create({
     padding: 5
   },
   logotext: {
-    // color: 'white',
-    fontWeight: 700,
-    fontSize: 30,
+    fontWeight: '700',
   },
   form: {
     flex: 1,
@@ -119,28 +121,14 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   loginButton: {
-    // flexGrow: 0.1,
-    // alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 15,
-    // paddingVertical: 12,
-    // backgroundColor: '#4CAF50', // Customize button color
-  },
-  buttonText: {
-    // flex: 1,
-    // alignContent: 'center',
-    // height: 50,
-    color: 'white',
-    paddingVertical: 5,
-    width: '100%',
-    fontSize: 16,
+    marginTop: 8,
   },
   signupText: {
     marginTop: 20,
     textAlign: 'center',
   },
   signupLink: {
-    color: '#3498db', // Customize signup link color
+    textDecorationLine: 'underline',
   },
 });
 

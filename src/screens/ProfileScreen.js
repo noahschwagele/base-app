@@ -1,12 +1,14 @@
 // ProfileScreen.js
-import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React, { useContext } from 'react';
+import { View, StyleSheet } from 'react-native';
 import ThemeSelector from '../components/ThemeSelector';
+import { ThemeContext } from '../contexts/ThemeContext';
 
 const ProfileScreen = ({ navigation, route }) => {
   const {logout} = route.params;
+  const { colors } = useContext(ThemeContext);
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { backgroundColor: colors.background }]}>
         <View style={styles.container}>
           <ThemeSelector/>
         </View>

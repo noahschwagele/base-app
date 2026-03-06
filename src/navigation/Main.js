@@ -62,7 +62,11 @@ const App = () => {
   }
 
   return (
-    <Stack.Navigator>
+    <Stack.Navigator 
+      screenOptions={{
+        animation: 'fade',
+      }}
+    >
       {userToken == null ? (
         // No token found, user isn't signed in
         <Stack.Screen
