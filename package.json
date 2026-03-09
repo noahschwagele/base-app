@@ -17,6 +17,7 @@
     "expo": "^54.0.33",
     "expo-application": "~7.0.8",
     "expo-background-task": "~1.0.10",
+    "expo-linking": "~8.0.11",
     "expo-notifications": "~0.32.16",
     "expo-status-bar": "~3.0.9",
     "expo-task-manager": "~14.0.9",

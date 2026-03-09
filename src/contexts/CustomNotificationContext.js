@@ -15,7 +15,7 @@ const TASK_STORAGE_KEY = "customNotificationTask";
 
 Notifications.setNotificationHandler({
     handleNotification: async () => ({
-        shouldShowAlert: true,
+        shouldShowBanner: true,
         shouldPlaySound: true,
         shouldSetBadge: true,
     }),

@@ -87,12 +87,18 @@ const Form = ({
 
 	const parsedFields = useMemo(() => {
 		if (!Array.isArray(schema)) {
-			setSchemaError("Schema must be an array of field objects.");
 			return [];
 		}
 
-		setSchemaError("");
 		return schema.filter((field) => field && field.name && SUPPORTED_TYPES.includes(field.type));
+	}, [schema]);
+
+	useEffect(() => {
+		if (!Array.isArray(schema)) {
+			setSchemaError("Schema must be an array of field objects.");
+		} else {
+			setSchemaError("");
+		}
 	}, [schema]);
 
 	useEffect(() => {
@@ -107,7 +113,7 @@ const Form = ({
 		});
 
 		setValues((previousValues) => ({ ...nextValues, ...previousValues }));
-	}, [parsedFields, initialValues]);
+	}, [parsedFields]);
 
 	const setValue = (name, value) => {
 		setValues((previousValues) => ({

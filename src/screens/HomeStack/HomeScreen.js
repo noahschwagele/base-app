@@ -126,15 +126,26 @@ const HomeScreen = ({ navigation, route }) => {
               type: "textarea", 
               label: "Notification Body", 
               placeholder: "Enter notification message",
+              required: false 
+            },
+             { 
+              name: "url", 
+              type: "text", 
+              label: "Notification URL", 
+              placeholder: "Enter URL",
               required: true 
             },
             { 
-              name: "userId", 
+              name: "id", 
               type: "number", 
-              label: "User ID (optional)", 
+              label: "ID (optional)", 
               placeholder: "123"
             }
           ]}
+          initialValues={{
+              title : "Test Notification"
+          }
+          }
           submitLabel="Send Notification"
           onSubmit={handleNotificationSubmit}
           onSuccess={() => showToast('Notification sent!', { type: 'success' })}
@@ -142,7 +153,7 @@ const HomeScreen = ({ navigation, route }) => {
         />
 
         {/* Modals & Toasts Section */}
-        <Card elevation={2} style={styles.card}>
+        {/* <Card elevation={2} style={styles.card}>
           <Text variant='titleLarge' style={styles.sectionTitle}>
             Modals & Toasts
           </Text>
@@ -201,10 +212,10 @@ const HomeScreen = ({ navigation, route }) => {
             })}
             style={styles.button}
           />
-        </Card>
+        </Card> */}
 
         {/* Components Showcase */}
-        <Card elevation={2} style={styles.card}>
+        {/* <Card elevation={2} style={styles.card}>
           <Text variant='titleLarge' style={styles.sectionTitle}>
             Typography Examples
           </Text>
@@ -212,10 +223,10 @@ const HomeScreen = ({ navigation, route }) => {
           <Text variant='titleMedium'>Title Medium</Text>
           <Text variant='body1'>Body text - regular paragraph content</Text>
           <Text variant='caption'>Caption text - smaller details</Text>
-        </Card>
+        </Card> */}
 
         {/* Form Card */}
-        <Card elevation={2} style={styles.card}>
+        {/* <Card elevation={2} style={styles.card}>
           <Text variant='titleLarge' style={styles.sectionTitle}>
             Form Components
           </Text>
@@ -245,10 +256,10 @@ const HomeScreen = ({ navigation, route }) => {
               label="Enable notifications"
             />
           </View>
-        </Card>
+        </Card> */}
 
         {/* Buttons Card */}
-        <Card elevation={2} style={styles.card}>
+        {/* <Card elevation={2} style={styles.card}>
           <Text variant='titleLarge' style={styles.sectionTitle}>
             Button Variants
           </Text>
@@ -296,20 +307,20 @@ const HomeScreen = ({ navigation, route }) => {
             disabled
             style={styles.button}
           />
-        </Card>
+        </Card> */}
 
         {/* Interactive Card */}
-        <TouchableOpacity onPress={() => alert('Card tapped!')}>
+        {/* <TouchableOpacity onPress={() => alert('Card tapped!')}>
           <Card elevation={3} style={styles.card}>
             <Text variant='titleMedium'>Tap this card!</Text>
             <Text variant='body2' style={styles.tapHint}>
               This card is wrapped in a TouchableOpacity
             </Text>
           </Card>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
 
         {/* Elevated Cards */}
-        <View style={styles.elevationRow}>
+        {/* <View style={styles.elevationRow}>
           <Card elevation={1} style={styles.smallCard}>
             <Text variant='caption'>Level 1</Text>
           </Card>
@@ -319,77 +330,18 @@ const HomeScreen = ({ navigation, route }) => {
           <Card elevation={5} style={styles.smallCard}>
             <Text variant='caption'>Level 5</Text>
           </Card>
-        </View>
+        </View> */}
 
         {/* Outlined Card */}
-        <Card mode="outlined" style={styles.card}>
+        {/* <Card mode="outlined" style={styles.card}>
           <Text variant='titleMedium'>Outlined Card</Text>
           <Text variant='body2'>
             This card uses the outlined mode instead of elevation
           </Text>
-        </Card>
+        </Card> */}
       </View>
 
-      {/* Newsletter Subscription Modal */}
-      <Modal
-        visible={showModal}
-        onClose={() => {
-          setShowModal(false);
-          setNewsletterEmail('');
-        }}
-        size="small"
-        animationType="scale"
-        showCloseButton={true}
-        dismissable={true}
-      >
-        <View style={styles.newsletterContainer}>
-          {/* Icon */}
-          <View style={styles.iconCircle}>
-            <Text style={styles.iconText}>📧</Text>
-          </View>
-          
-          {/* Title */}
-          <Text variant="headlineSmall" style={styles.newsletterTitle}>
-            Stay Updated!
-          </Text>
-          
-          {/* Description */}
-          <Text variant="body2" style={styles.newsletterDescription}>
-            Subscribe to our newsletter and get the latest updates, tips, and exclusive content delivered to your inbox.
-          </Text>
-          
-          {/* Email Input */}
-          <TextInput
-            label="Email Address"
-            placeholder="you@example.com"
-            value={newsletterEmail}
-            onChangeText={setNewsletterEmail}
-            keyboardType="email-address"
-            autoCapitalize="none"
-            mode="outlined"
-          />
-          
-          {/* Action Buttons */}
-          <View style={styles.newsletterActions}>
-            <Button
-              title="Subscribe"
-              variant="primary"
-              onPress={handleSubscribe}
-              loading={subscribing}
-              style={styles.subscribeButton}
-            />
-            <Button
-              title="Maybe Later"
-              variant="text"
-              onPress={() => {
-                setShowModal(false);
-                setNewsletterEmail('');
-              }}
-              style={styles.laterButton}
-            />
-          </View>
-        </View>
-      </Modal>
+      
     </ScrollView>
   );
 };
