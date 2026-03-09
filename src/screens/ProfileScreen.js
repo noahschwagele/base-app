@@ -3,6 +3,8 @@ import React, { useContext } from 'react';
 import { View, StyleSheet } from 'react-native';
 import ThemeSelector from '../components/ThemeSelector';
 import { ThemeContext } from '../contexts/ThemeContext';
+import CustomNotificationSelector from '../components/CustomNotificationSelector';
+import NotificationSelector from '../components/NotificationSelector';
 
 const ProfileScreen = ({ navigation, route }) => {
   const {logout} = route.params;
@@ -11,6 +13,8 @@ const ProfileScreen = ({ navigation, route }) => {
     <View style={[styles.container, { backgroundColor: colors.background }]}>
         <View style={styles.container}>
           <ThemeSelector/>
+          <CustomNotificationSelector/>
+          <NotificationSelector/>
         </View>
     </View>
   );
@@ -19,6 +23,7 @@ const ProfileScreen = ({ navigation, route }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    gap: 10,
     // justifyContent: 'center',
     // alignItems: 'center',
     // paddingHorizontal: 20,

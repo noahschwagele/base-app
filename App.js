@@ -6,6 +6,8 @@ import { ToastProvider } from "./src/contexts/ToastContext";
 import { OverlayRenderer, ToastManager } from "./src/components";
 import MainNav from "./src/navigation/Main";
 import { StatusBar } from "expo-status-bar";
+import { CustomNotificationProvider } from "./src/contexts/CustomNotificationContext";
+import GlobalContext from "./src/contexts/GlobalContext";
 
 const AppContent = () => {
     const { isDark, navTheme } = useContext(ThemeContext);
@@ -13,9 +15,8 @@ const AppContent = () => {
     return (
         <NavigationContainer theme={navTheme}>
             <StatusBar style={isDark ? "light" : "dark"} />
-            <MainNav />
-            <OverlayRenderer />
-            <ToastManager />
+                <MainNav />
+                
         </NavigationContainer>
     );
 };
@@ -23,11 +24,9 @@ const AppContent = () => {
 export default function App() {
     return (
         <ThemeProvider>
-            <ToastProvider>
-                <OverlayProvider>
-                    <AppContent />
-                </OverlayProvider>
-            </ToastProvider>
+            <GlobalContext>
+                <AppContent />
+            </GlobalContext>
         </ThemeProvider>
     );
 }

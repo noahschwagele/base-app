@@ -7,6 +7,7 @@ import { ThemeContext } from '../contexts/ThemeContext';
 // Import the Operator and Driver Stacks
 import ProfileStack from './ProfileStack';
 import HomeStack from './HomeStack';
+import NotificationStack from './NotificationStack';
 
 const Tab = createBottomTabNavigator();
 
@@ -39,6 +40,18 @@ export default function BottomTabs({route}) {
           headerShown: false,
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="home" color={color} size={26} />
+          ),
+        }}
+        initialParams={{ userToken, userDetails, userRole, logout }}
+      />
+      <Tab.Screen
+        name="NotificationStack"
+        component={NotificationStack}
+        options={{
+          tabBarLabel: 'Notifications',
+          headerShown: false,
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="bell" color={color} size={26} />
           ),
         }}
         initialParams={{ userToken, userDetails, userRole, logout }}

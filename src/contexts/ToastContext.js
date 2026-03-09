@@ -1,4 +1,5 @@
 import React, { createContext, useState, useContext, useCallback } from 'react';
+import { ToastManager } from '../components';
 
 export const ToastContext = createContext();
 
@@ -58,6 +59,7 @@ export const ToastProvider = ({ children }) => {
   return (
     <ToastContext.Provider value={value}>
       {children}
+      <ToastManager />
     </ToastContext.Provider>
   );
 };

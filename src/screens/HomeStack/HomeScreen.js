@@ -10,10 +10,29 @@ import {
   Card, 
   Switch,
   TouchableOpacity,
-  Modal
+  Modal,
+  Form
 } from '../../components';
 import { useOverlay } from '../../contexts/OverlayContext';
 import { useToast } from '../../contexts/ToastContext';
+import { sendLocalNotification } from '../../contexts/NotificationContext';
+
+// In your component:
+const handleNotificationSubmit = async (formValues) => {
+  // formValues will contain all the form fields as an object
+  // Map the form fields to notification parameters
+  await sendLocalNotification(
+    formValues.title,        // Maps to the title field from form
+    formValues.body,         // Maps to the body field from form
+    {
+      // Any additional data you want to pass
+      userId: formValues.userId,
+      timestamp: new Date().toISOString(),
+      // Or pass all remaining fields as data
+      ...formValues
+    }
+  );
+};
 
 const HomeScreen = ({ navigation, route }) => {
   const { logout } = route.params;
@@ -91,6 +110,36 @@ const HomeScreen = ({ navigation, route }) => {
             Explore custom themed components
           </Text>
         </View>
+        
+        <Form
+          title="Send Notification"
+          schema={[
+            { 
+              name: "title", 
+              type: "text", 
+              label: "Notification Title", 
+              placeholder: "Enter title",
+              required: true 
+            },
+            { 
+              name: "body", 
+              type: "textarea", 
+              label: "Notification Body", 
+              placeholder: "Enter notification message",
+              required: true 
+            },
+            { 
+              name: "userId", 
+              type: "number", 
+              label: "User ID (optional)", 
+              placeholder: "123"
+            }
+          ]}
+          submitLabel="Send Notification"
+          onSubmit={handleNotificationSubmit}
+          onSuccess={() => showToast('Notification sent!', { type: 'success' })}
+          onError={(error) => showToast(error.message, { type: 'error' })}
+        />
 
         {/* Modals & Toasts Section */}
         <Card elevation={2} style={styles.card}>
@@ -347,9 +396,11 @@ const HomeScreen = ({ navigation, route }) => {
 
 const styles = StyleSheet.create({
   scrollContent: {
+    
     paddingBottom: 20,
   },
   container: {
+    gap:10,
     padding: 16,
   },
   headerSection: {

@@ -1,4 +1,5 @@
 import React, { createContext, useState, useContext, useCallback } from 'react';
+import { OverlayRenderer } from '../components';
 
 export const OverlayContext = createContext();
 
@@ -41,6 +42,7 @@ export const OverlayProvider = ({ children }) => {
   return (
     <OverlayContext.Provider value={value}>
       {children}
+      <OverlayRenderer/>
     </OverlayContext.Provider>
   );
 };

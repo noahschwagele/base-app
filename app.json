@@ -11,7 +11,8 @@
       "backgroundColor": "#ffffff"
     },
     "plugins": [
-      "expo-background-task"
+      "expo-background-task",
+      "expo-notifications"
     ],
     "assetBundlePatterns": [
       "**/*"
