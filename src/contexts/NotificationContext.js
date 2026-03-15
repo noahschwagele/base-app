@@ -9,17 +9,54 @@ export const NotificationContext = createContext();
 
 export const NotificationProvider = ({ children }) => {
     const [expoPushToken, setExpoPushToken] = useState(null);
-    const [notification, setNotification] = useState(false);
+    const [hasPermission, setHasPermission] = useState(false);
+
+    const syncNotificationState = async () => {
+        const token = await registerForPushNotificationsAsync();
+        const isEnabled = Boolean(token);
+        console.log("Notification permission status:", isEnabled ? "Granted" : "Denied");
+        console.log("Expo Push Token:", token);
+        setExpoPushToken(token ?? null);
+        setHasPermission(isEnabled);
+
+        return isEnabled;
+    };
 
     useEffect(() => {
-        registerForPushNotificationsAsync().then((token) =>
-            setNotification(token)
-        );
-        console.log("Expo Push Token:", expoPushToken);
+        syncNotificationState().catch((error) => {
+            console.error("Failed to initialize push notifications:", error);
+            setExpoPushToken(null);
+            setHasPermission(false);
+        });
     }, []);
 
+    const toggleNotifications = async (nextValue) => {
+        if (!nextValue) {
+            const { status } = await Notifications.getPermissionsAsync();
+            const isGranted = status === "granted";
+
+            setHasPermission(isGranted);
+            if (!isGranted) {
+                setExpoPushToken(null);
+            }
+
+            return isGranted;
+        }
+
+        return syncNotificationState();
+    };
+
     return (
-        <NotificationContext.Provider value={{ expoPushToken, notification, sendLocalNotification }}>
+        <NotificationContext.Provider
+            value={{
+                expoPushToken,
+                hasPermission,
+                isEnabled: hasPermission && Boolean(expoPushToken),
+                toggleNotifications,
+                refreshNotifications: syncNotificationState,
+                sendLocalNotification,
+            }}
+        >
             {children}
         </NotificationContext.Provider>
     );
@@ -39,60 +76,34 @@ export async function sendLocalNotification(title, body, data = {}) {
 
 async function registerForPushNotificationsAsync() {
     let token;
+
+    if (Platform.OS === "android") {
+        await Notifications.setNotificationChannelAsync("default", {
+            name: "default",
+            importance: Notifications.AndroidImportance.MAX,
+            vibrationPattern: [0, 250, 250, 250],
+            lightColor: "#FF231F7C",
+        });
+    }
+
     if (Device.isDevice) {
         const { status: existingStatus } = await Notifications.getPermissionsAsync();
         let finalStatus = existingStatus;
+
         if (existingStatus !== "granted") {
             const { status } = await Notifications.requestPermissionsAsync();
             finalStatus = status;
         }
+
         if (finalStatus !== "granted") {
             alert("Failed to get push token for push notification!");
-            return;
+            return null;
         }
+
         token = (await Notifications.getExpoPushTokenAsync()).data;
     } else {
         alert("Must use physical device for Push Notifications");
-    }
-
-    if (Platform.OS === "android") {
-        Notifications.setNotificationChannelAsync("default", {
-            name: "default",
-            importance: Notifications.AndroidImportance.MAX,
-            vibrationPattern: [0, 250, 250, 250],
-            lightColor: "#FF231F7C",
-        });
-    }
-
-    return token;
-}
-
-//Register for expo token
-async function registerForExpoPushNotificationsAsync() {
-    let token;
-    if (Device.isDevice) {
-        const { status: existingStatus } = await Notifications.getPermissionsAsync();
-        let finalStatus = existingStatus;
-        if (existingStatus !== "granted") {
-            const { status } = await Notifications.requestPermissionsAsync();
-            finalStatus = status;
-        }
-        if (finalStatus !== "granted") {
-            alert("Failed to get push token for push notification!");
-            return;
-        }
-        token = (await Notifications.getExpoPushTokenAsync());
-    } else {
-        alert("Must use physical device for Push Notifications");
-    }
-
-    if (Platform.OS === "android") {
-        Notifications.setNotificationChannelAsync("default", {
-            name: "default",
-            importance: Notifications.AndroidImportance.MAX,
-            vibrationPattern: [0, 250, 250, 250],
-            lightColor: "#FF231F7C",
-        });
+        return null;
     }
 
     return token;

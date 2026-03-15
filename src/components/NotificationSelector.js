@@ -1,17 +1,15 @@
 //Notification selector to toggle notifications on and off, and to request permissions if needed
 
-import { useContext, useEffect, useState } from "react";
-import { CustomNotificationContext } from "../contexts/CustomNotificationContext";
+import { useContext } from "react";
+import { NotificationContext } from "../contexts/NotificationContext";
 import { View, StyleSheet } from "react-native";
-import * as Notifications from "expo-notifications";
 import Switch from "./Switch";
 import AppText from "./Text";
 import { ThemeContext } from "../contexts/ThemeContext";
 
 
 const NotificationSelector = () => {
-    const { isEnabled, toggleNotifications } = useContext(CustomNotificationContext);
-    const [hasPermission, setHasPermission] = useState(false);
+    const { hasPermission, isEnabled, toggleNotifications } = useContext(NotificationContext);
     const { paperTheme } = useContext(ThemeContext);
     const colors = paperTheme.colors;
 
@@ -23,15 +21,6 @@ const NotificationSelector = () => {
     const detailTextStyle = {
         color: colors.onSurfaceVariant || colors.textMuted || colors.onSurface,
     };
-
-    useEffect(() => {
-        // Check for notification permissions
-        const checkPermissions = async () => {
-            const { status } = await Notifications.getPermissionsAsync();
-            setHasPermission(status === "granted");
-        };
-        checkPermissions();
-    }, []);
 
     return (
         <View
@@ -49,7 +38,7 @@ const NotificationSelector = () => {
                     Service: {isEnabled ? "Enabled" : "Disabled"}
                 </AppText>
             </View>
-            <Switch value={isEnabled} onValueChange={toggleNotifications} />
+            <Switch value={isEnabled} onValueChange={(value) => toggleNotifications(value)} />
         </View>
     );
 };
