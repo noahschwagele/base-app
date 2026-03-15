@@ -3,7 +3,7 @@
     "name": "base-app",
     "slug": "base-app",
     "version": "1.0.0",
-    "orientation": "both",
+    "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",
